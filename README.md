@@ -2,10 +2,10 @@
 
 ```
 let agents = []
-let count = 500
+let count = 300
 
 function setup() {
-  createCanvas(400, 400)
+  createCanvas(800, 800)
 
   for (let i = 0; i < count; i++) {
     let agent = {
@@ -28,9 +28,8 @@ function setup() {
       },
 
       draw() {
-        noStroke()
-        fill(random(0,255))
-        circle(this.pos.x, this.pos.y,10)
+        textSize(40)
+        text("😀",this.pos.x, this.pos.y)
       }
     }
 
@@ -58,3 +57,4 @@ function mousePressed() {
   })
 }
 ```
+I replaced all the point to 😀,and assign a force to each point directed toward the mouse position (by subtracting the particle's position from the mouse position), then apply an acceleration to the particle while limiting its maximum speed. After that, clear the acceleration using this.acc.mult(0) (to prevent excessive speed). Finally, when the mouse clicks on the screen, the particles will move away from the mouse (by subtracting the mouse position from the particle's position).
